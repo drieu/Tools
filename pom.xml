@@ -32,5 +32,12 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
+
+        <!-- svn dependencies for fr.dr.svn package -->
+        <dependency>
+            <groupId>org.tmatesoft.svnkit</groupId>
+            <artifactId>svnkit</artifactId>
+            <version>1.7.8</version>
+        </dependency>
     </dependencies>
 </project>

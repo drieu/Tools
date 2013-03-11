@@ -1,5 +1,8 @@
 package fr.dr.parser.xls;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * User: drieu
@@ -8,6 +11,21 @@ package fr.dr.parser.xls;
  * To change this template use File | Settings | File Templates.
  */
 public class XlsObject {
+
+    private List<String> cols;
+
+
+    public XlsObject(String... values) {
+        for (String v : values) {
+            cols.add(v);
+        }
+
+
+    }
+
+
+    public XlsObject() {
+    }
 
     private String maName;
 

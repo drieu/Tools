@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Parse java files and retrieve all entity.
+ * Parse java files and retrieve all entity with command :
+ * find ./ -iname *.java | grep -R "@Entity" ma* | grep -v svn
  *
  * User: drieu
  * Date: 07/03/13
