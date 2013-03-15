@@ -79,10 +79,20 @@ public class Post {
 
         try {
             String message = URLEncoder.encode(messageToSend, ENCODING);
-            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyUrl, Integer.parseInt(proxyPort)));
+
+            if (urlDest.endsWith("/")) {
+                logger.warn("Url must not have a / at the end of the request !");
+            }
 
             URL url = new URL(urlDest);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection(proxy);
+            HttpURLConnection connection;
+            if (proxyUrl == null && proxyUrl.isEmpty()) {
+                Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyUrl, Integer.parseInt(proxyPort)));
+                connection = (HttpURLConnection) url.openConnection(proxy);
+            } else {
+                connection = (HttpURLConnection) url.openConnection();
+            }
+
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
 
