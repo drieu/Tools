@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * Parse java files and retrieve all entity with command :
- * find ./ -iname *.java | grep -R "@Entity" ma* | grep -v svn
+ * find ./ -iname *.java | grep -R "@Entity" * | grep -v svn
  *
  * User: drieu
  * Date: 07/03/13
@@ -33,7 +33,7 @@ public class EntityParser {
 
     public static void main(String[] args) {
 
-        EntityParser entityParser = new EntityParser("/home/drieu/Repos/Palier/");
+        EntityParser entityParser = new EntityParser("/tmp/RESULT/");
         List<XlsObject> lstXls = entityParser.extractFromLst("/home/drieu/Investigations/entity.txt");
         ExcelBuilder.saveInXls(lstXls);
     }
